@@ -1,2 +1,8 @@
+.catalog
+  name: "Saphoooo Nginx"
+  version: 0.1
+  description: "Simple Nginx by Saphoooo"
+  uuid: nginx-0.1-0
+  
 nginx:
   scale: 1
