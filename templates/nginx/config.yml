@@ -1,0 +1,5 @@
+name: saphoooo nginx
+description: |
+  Basic nginx server.
+version: v0.1
+category: Saphoooo stuff
