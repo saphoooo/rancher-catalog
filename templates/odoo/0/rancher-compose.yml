@@ -3,6 +3,29 @@
   version: 0.1
   description: "Odoo to be used with an external database"
   uuid: odoo-0.1-0
+  questions:
+    - variable: "DB_PORT_5432_TCP_ADDR"
+      description: "Postgres Database Hostname of IP address"
+      label: "DB_PORT_5432_TCP_ADDR"
+      required: true
+      type: "string"
+    - variable: "DB_PORT_5432_TCP_PORT"
+      description: "Postgres Database Port"
+      label: "DB_PORT_5432_TCP_PORT"
+      required: true
+      default: "5432"
+      type: "int"
+    - variable: "DB_ENV_POSTGRES_USER"
+      description: "Postgres Database User"
+      label: "DB_ENV_POSTGRES_USER"
+      default: "odoo"
+      required: true
+      type: "string"
+    - variable: "DB_ENV_POSTGRES_PASSWORD"
+      description: "Postgres Database User Password"
+      label: "DB_ENV_POSTGRES_PASSWORD"
+      required: true
+      type: "string"
 
 crm:
   scale: 1
