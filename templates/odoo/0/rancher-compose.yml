@@ -1,0 +1,8 @@
+.catalog:
+  name: "Data Essential Odoo"
+  version: 0.1
+  description: "Odoo to be used with an external database"
+  uuid: odoo-0.1-0
+
+crm:
+  scale: 1

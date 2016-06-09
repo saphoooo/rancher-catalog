@@ -1,0 +1,5 @@
+name: Data Essential Odoo
+description: |
+  Odoo to be used with an external database
+version: 0.1
+category: ERP
