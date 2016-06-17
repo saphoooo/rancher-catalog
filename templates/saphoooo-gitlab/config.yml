@@ -1,0 +1,6 @@
+name: Saphoooo Gitlab
+description: |
+  Gitlab with Postgresql and Redis
+version: v1.0
+category: Development
+maintainer: Saphoooo <stephane.beuret@gmail.com>
