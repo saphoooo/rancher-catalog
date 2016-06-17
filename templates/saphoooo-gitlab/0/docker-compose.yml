@@ -7,7 +7,7 @@ gitlab-data:
   - gitlab-postgresql:postgresql
   - gitlab-redis:redisio
   volumes:
-  - /srv/docker/gitlab/gitlab:/home/git/data
+  - /home/git/data
   stdin_open: true
 gitlab-postgresql:
   environment:
@@ -56,7 +56,7 @@ gitlab-postgresql-data:
   tty: true
   image: busybox
   volumes:
-  - /srv/docker/gitlab/postgresql:/var/lib/postgresql
+  - /var/lib/postgresql
   stdin_open: true
 gitlab-redis-data:
   labels:
@@ -64,5 +64,5 @@ gitlab-redis-data:
   tty: true
   image: busybox
   volumes:
-  - /srv/docker/gitlab/redis:/var/lib/redis
+  - /var/lib/redis
   stdin_open: true
