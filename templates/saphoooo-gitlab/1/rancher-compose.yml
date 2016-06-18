@@ -1,0 +1,42 @@
+.catalog:
+  name: "Gitlab"
+  version: v2.0
+  description: "Gitlab with Postgresql and Redis"
+  uuid: gitlab-1.0
+  questions:
+    - variable: "DB_PASS"
+      label: "Password for Postgresql"
+      description: "Password"
+      type: "password"
+      required: true
+    - variable: "GITLAB_PORT"
+      label: "Port for http access"
+      description: "Port number for Gitlab http access"
+      type: "string"
+      required: true
+      default: "80"
+    - variable: "GITLAB_SSH_PORT"
+      label: "Port for ssh access"
+      description: "Port number for Gitlab ssh access"
+      type: "string"
+      required: true
+      default: "10022"
+    - variable: "GITLAB_HOST"
+      label: "Gitlab Hostname"
+      description: "Gitlab hostname"
+      default: "localhost"
+      type: "string"
+      required: true
+
+gitlab-data:
+  scale: 1
+gitlab-postgresql:
+  scale: 1
+gitlab:
+  scale: 1
+gitlab-redis:
+  scale: 1
+gitlab-postgresql-data:
+  scale: 1
+gitlab-redis-data:
+  scale: 1

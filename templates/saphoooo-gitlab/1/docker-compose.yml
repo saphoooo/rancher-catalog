@@ -1,0 +1,69 @@
+gitlab-data:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: busybox
+  links:
+  - gitlab-postgresql:postgresql
+  - gitlab-redis:redisio
+  volumes:
+  - /home/git/data
+  stdin_open: true
+gitlab-postgresql:
+  environment:
+    DB_NAME: gitlabhq_production
+    DB_USER: gitlab
+    DB_PASS: ${DB_PASS}
+    DB_EXTENSION: pg_trgm
+  labels:
+    io.rancher.sidekicks: gitlab-postgresql-data
+    io.rancher.container.pull_image: always
+  tty: true
+  image: sameersbn/postgresql:9.4-22
+  volumes_from:
+  - gitlab-postgresql-data
+  stdin_open: true
+gitlab:
+  ports:
+  - ${GITLAB_SSH_PORT}:22/tcp
+  environment:
+    GITLAB_PORT: ${GITLAB_PORT}
+    GITLAB_SSH_PORT: ${GITLAB_SSH_PORT}
+    GITLAB_SECRETS_DB_KEY_BASE: 58de8a8fae1a1141195a466cea36d1ec96e31a456888
+    GITLAB_HOST: ${GITLAB_HOST}
+  labels:
+    io.rancher.sidekicks: gitlab-data
+    io.rancher.container.pull_image: always
+  tty: true
+  image: sameersbn/gitlab:8.8.5
+  links:
+  - gitlab-postgresql:postgresql
+  - gitlab-redis:redisio
+  volumes_from:
+  - gitlab-data
+  stdin_open: true
+gitlab-redis:
+  labels:
+    io.rancher.sidekicks: gitlab-redis-data
+    io.rancher.container.pull_image: always
+  tty: true
+  image: sameersbn/redis:latest
+  volumes_from:
+  - gitlab-redis-data
+  stdin_open: true
+gitlab-postgresql-data:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: busybox
+  volumes:
+  - /var/lib/postgresql
+  stdin_open: true
+gitlab-redis-data:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: busybox
+  volumes:
+  - /var/lib/redis
+  stdin_open: true
