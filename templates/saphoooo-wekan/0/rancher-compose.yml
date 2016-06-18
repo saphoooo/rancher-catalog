@@ -1,0 +1,23 @@
+.catalog:
+  name: "Wekan"
+  version: v1.0
+  description: "Wekan an open-source kanban"
+  uuid: wekan-1.0
+  questions:
+    - variable: "MONGO_URL"
+      label: "Mongo url"
+      description: "mongodb://mongo/wekan"
+      type: "string"
+      required: true
+    - variable: "ROOT_URL"
+      label: "Wekan root url"
+      description: "http://localhost:80"
+      type: "string"
+      required: true
+
+wekan-db-data:
+  scale: 1
+wekan:
+  scale: 1
+wekan-db:
+  scale: 1

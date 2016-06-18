@@ -1,0 +1,32 @@
+wekan-db-data:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: busybox
+  volumes:
+  - /data/db
+  stdin_open: true
+wekan:
+  environment:
+    MONGO_URL: ${MONGO_URL}
+    ROOT_URL: ${ROOT_URL}
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: mquandalle/wekan
+  links:
+  - wekan-db:mongo
+  stdin_open: true
+wekan-db:
+  labels:
+    io.rancher.sidekicks: wekan-db-data
+    io.rancher.container.pull_image: always
+  tty: true
+  command:
+  - mongod
+  - --storageEngine
+  - wiredTiger
+  image: mongo:3
+  volumes_from:
+  - wekan-db-data
+  stdin_open: true
