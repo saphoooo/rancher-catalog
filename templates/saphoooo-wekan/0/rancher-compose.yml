@@ -6,12 +6,14 @@
   questions:
     - variable: "MONGO_URL"
       label: "Mongo url"
-      description: "mongodb://mongo/wekan"
+      description: "e.g. mongodb://mymongo/wekan"
+      default: "mongodb://mongo/wekan"
       type: "string"
       required: true
     - variable: "ROOT_URL"
       label: "Wekan root url"
-      description: "http://localhost:80"
+      description: "e.g. http://wekan.example.com:80"
+      default: "http://localhost:80"
       type: "string"
       required: true
 
