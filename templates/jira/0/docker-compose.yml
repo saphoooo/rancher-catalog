@@ -1,0 +1,12 @@
+jira:
+  ports:
+  - 8080:8080/tcp
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: cptactionhank/atlassian-jira
+  volumes:
+  - /var/atlassian/jira
+  - /opt/atlassian/jira/logs
+  stdin_open: true
+  volume_driver: convoy-nfs
