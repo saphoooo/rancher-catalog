@@ -1,4 +1,7 @@
 git:
+  ports:
+  - 7990:7990/tcp
+  - 7999:7999/tcp
   labels:
     io.rancher.sidekicks: bitbucket-run-once
     io.rancher.container.pull_image: always
