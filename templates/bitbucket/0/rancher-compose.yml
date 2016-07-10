@@ -1,7 +1,6 @@
 .catalog:
   name: Data Essential Bitbucket
-  description: |
-    Bitbucket Server is an on-premises source code management solution for Git that is secure, fast, and enterprise grade.
+  tbucket Server is an on-premises source code management solution for Git that is secure, fast, and enterprise grade."description: "
   version: 0.1
 
 git:
