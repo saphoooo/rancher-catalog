@@ -3,7 +3,7 @@
   description: "Bitbucket Server is an on-premises source code management solution for Git that's secure, fast, and enterprise grade."
   version: 0.1
 
-git:
+bitbucket:
   scale: 1
 bitbucket-run-once:
   scale: 1
