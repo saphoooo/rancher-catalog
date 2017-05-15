@@ -1,6 +1,6 @@
 .catalog:
   name: "Blue-Green Cool App"
-  version: 2
+  version: 4
   description: "A simple blue-green demo app"
 
 version: '2'
