@@ -6,7 +6,7 @@
 version: '2'
 services:
   nginx:
-    scale: 1
+    scale: 2
     start_on_create: true
   lb:
     scale: 1
