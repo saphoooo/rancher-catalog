@@ -1,21 +1,19 @@
 version: '2'
 services:
   nginx:
-    labels:
-      io.rancher.scheduler.affinity:host_label: name=back-end
-      io.rancher.scheduler.affinity:container_soft: name=b
-      io.rancher.scheduler.affinity:container_soft_ne: name=b
     image: de13/bluegreen:green
     stdin_open: true
     tty: true
     labels:
       io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: name=back-end
+      io.rancher.scheduler.affinity:container_soft: zone=b
+      io.rancher.scheduler.affinity:container_soft_ne: zone=b
   lb:
     image: rancher/lb-service-haproxy:v0.5.9
-    labels:
-      io.rancher.scheduler.affinity:host_label: name=front-end
     ports:
     - 80:80/tcp
     labels:
       io.rancher.container.agent.role: environmentAdmin
       io.rancher.container.create_agent: 'true'
+      io.rancher.scheduler.affinity:host_label: name=front-end
