@@ -19,7 +19,6 @@ services:
 
 volumes:
   foo:
-    external: true
     driver: rancher-ebs
     driver_opts:
       size: 10
