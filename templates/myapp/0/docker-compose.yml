@@ -1,0 +1,24 @@
+on: '2'
+volumes:
+  foo:
+    external: true
+    driver: rancher-ebs
+    driver_opts:
+      size: 10
+services:
+  mongo-myapp:
+    image: de13/mongo-myapp
+    stdin_open: true
+    volumes:
+    - foo:/data/db
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  myapp:
+    image: de13/myapp
+    stdin_open: true
+    tty: true
+    links:
+    - mongo-myapp:mongodb
+    labels:
+      io.rancher.container.pull_image: always

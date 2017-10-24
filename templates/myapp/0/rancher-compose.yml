@@ -1,0 +1,13 @@
+.catalog:
+  name: "myApp"
+  version: v1.0
+  description: "My Extra App"
+  uuid: myapp-1.0
+version: '2'
+services:
+  mongo-myapp:
+    scale: 1
+    start_on_create: true
+  myapp:
+    scale: 2
+    start_on_create: true

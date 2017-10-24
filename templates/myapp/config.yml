@@ -1,0 +1,6 @@
+name: myApp
+description: |
+  My Extra App
+version: v1.0
+category: Development
+maintainer: de13 <stephane.beuret@data-essential.com>
