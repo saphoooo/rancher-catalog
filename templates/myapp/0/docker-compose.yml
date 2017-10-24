@@ -1,12 +1,4 @@
 version: '2'
-volumes:
-  foo:
-    external: true
-    driver: rancher-ebs
-    driver_opts:
-      size: 10
-      volumeType: gp2
-      iops: 100
 services:
   mongo-myapp:
     image: de13/mongo-myapp
@@ -24,3 +16,12 @@ services:
     - mongo-myapp:mongodb
     labels:
       io.rancher.container.pull_image: always
+
+volumes:
+  foo:
+    external: true
+    driver: rancher-ebs
+    driver_opts:
+      size: 10
+      volumeType: gp2
+      iops: 100
