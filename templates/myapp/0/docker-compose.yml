@@ -5,6 +5,8 @@ volumes:
     driver: rancher-ebs
     driver_opts:
       size: 10
+      volumeType: gp2
+      iops: 100
 services:
   mongo-myapp:
     image: de13/mongo-myapp
